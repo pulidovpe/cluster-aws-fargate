@@ -4,6 +4,11 @@ resource "aws_alb" "main" {
   name            = "erp-alb"
   subnets         = aws_subnet.public.*.id
   security_groups = [aws_security_group.alb.id]
+
+  # subnet_mapping {
+  #   subnet_id     = aws_subnet.public[0].id
+  #   allocation_id = "eipalloc-082791d5b3e8c2483"
+  # }
 }
 
 # Create the ALB target group for ECS

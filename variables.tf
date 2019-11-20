@@ -44,12 +44,12 @@ variable "app_port" {
 
 variable "az_count" {
    description = "Number of AZs to cover in a given region"
-   default     = 2
+   default     = 1
 }
 
 variable "app_count" {
    description = "Number of docker containers to run"
-   default     = 0
+   default     = 1
 }
 
 variable "multi_az" {
@@ -134,4 +134,23 @@ variable "mail_use_ssl" {
 }
 variable "seed_test" {
    default = "False"
+}
+#### Elasticache ####
+variable "engine_version" {
+  type        = "string"
+  description = "The version number of the cache engine"
+  default     = "5.0.0"
+}
+
+variable "retention_limit" {
+   default  = 0  
+   # 0-5 not supported cache.t1.micro or cache.t2.* cache nodes 
+}
+
+variable "replicas_per_node" {
+   default  = 1
+}
+
+variable "node_groups" {
+   default     = 1   # 1-...
 }

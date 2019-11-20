@@ -23,7 +23,7 @@
 
 # misc
 **/.terraform
-**/terraform.state*
+##**/terraform.state*
 
 # credentials
 id_rsa*
