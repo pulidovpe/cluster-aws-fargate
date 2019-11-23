@@ -7,9 +7,11 @@ variable "aws_account" {
 
 variable "aws_access_key_id" {
    description = "The AWS account"
+   default     = ""
 }
 variable "aws_secret_access_key" {
    description = "The AWS secret"
+   default     = ""
 }
 
 variable "aws_region" {
@@ -34,7 +36,7 @@ variable "ecs_task_execution_role_name" {
 
 variable "app_image" {
    description = "Docker image to run in the ECS cluster"
-   default     = "767167112715.dkr.ecr.us-east-2.amazonaws.com/erp_advance/production:latest"
+   default     = "767167112715.dkr.ecr.us-east-2.amazonaws.com/erp_advance/production@sha256:435f1d0e68d6a95e315510c251fb26bd36c88aec6a32551d3aea7a57f5092514"
 }
 
 variable "app_port" {
@@ -44,7 +46,7 @@ variable "app_port" {
 
 variable "az_count" {
    description = "Number of AZs to cover in a given region"
-   default     = 1
+   default     = 2
 }
 
 variable "app_count" {
@@ -135,7 +137,7 @@ variable "mail_use_ssl" {
 variable "seed_test" {
    default = "False"
 }
-#### Elasticache ####
+######################## Elasticache ########################
 variable "engine_version" {
   type        = "string"
   description = "The version number of the cache engine"
@@ -153,4 +155,20 @@ variable "replicas_per_node" {
 
 variable "node_groups" {
    default     = 1   # 1-...
+}
+
+######################### Elasticsearch #########################
+variable "es_domain" {
+   description = "ElasticSearch domain name"
+   default     = "erp-es"
+}
+
+variable "instance_type" {
+   description = "The instance type"
+   default     = "t2.small.elasticsearch"
+}
+
+variable "es_version" {
+   description = "The elasticsearch version"
+   default     = "6.8"
 }
