@@ -2,7 +2,7 @@
 
 variable "aws_account" {
    description = "The AWS account"
-   default     = "767167112715"
+   default     = ""
 }
 
 variable "aws_access_key_id" {
@@ -36,7 +36,7 @@ variable "ecs_task_execution_role_name" {
 
 variable "app_image" {
    description = "Docker image to run in the ECS cluster"
-   default     = "767167112715.dkr.ecr.us-east-2.amazonaws.com/erp_advance/production@sha256:435f1d0e68d6a95e315510c251fb26bd36c88aec6a32551d3aea7a57f5092514"
+   default     = ""
 }
 
 variable "app_port" {
@@ -91,7 +91,7 @@ variable "instance_class" {
 
 variable "database_name" {
    description = "The database name"
-   default     = "ERP_Advance"
+   default     = ""
 }
 
 variable "database_username" {
@@ -123,10 +123,10 @@ variable "mail_port" {
    default = 2525
 }
 variable "mail_username" {
-   default = "81f3d193f78b4b"
+   default = ""
 }
 variable "mail_password" {
-   default = "98fa9c9f5ae977"
+   default = ""
 }
 variable "mail_use_tls" {
    default = "True"
